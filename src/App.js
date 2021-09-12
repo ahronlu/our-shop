@@ -1,15 +1,21 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import { HomePage, CategoryPage, ProductPage } from "./pages";
+import { Header } from "./components";
 
 import "./App.css";
 
-function App() {
+export default function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" component={Home} />
-      </Switch>
+      <Header />
+      <Container>
+        <Switch>
+          <Route path="/:categoryName" component={CategoryPage} />
+          <Route path="/product/:productId" component={ProductPage} />
+          <Route path="/" component={HomePage} exact />
+        </Switch>
+      </Container>
     </Router>
   );
 }
-
-export default App;
