@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { ProductCard } from "../components/ProductCard";
 
 export const HomePage = () => {

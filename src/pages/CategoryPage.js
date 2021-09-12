@@ -15,13 +15,6 @@ export const CategoryPage = (props) => {
     getProducts();
   }, []);
 
-  console.log(
-    products.filter((p) => {
-      console.log(p.category, categoryName);
-      return p.category == categoryName;
-    })
-  );
-
   return (
     <Row>
       <h1>{categoryName}</h1>

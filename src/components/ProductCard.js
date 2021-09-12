@@ -20,7 +20,7 @@ export const ProductCard = ({
       <h2>{title.slice(0, 25)}</h2>
       <p className="description">{description.slice(0, 100)}...</p>
       <p>{price}</p>
-      <Button variant="primary">Add To Cart</Button>
+      <Button variant="warning">Add To Cart</Button>
     </Col>
   );
 };
