@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Col, Row, Button } from "react-bootstrap";
 
 export const ProductPage = ({ match }) => {
@@ -22,14 +23,20 @@ export const ProductPage = ({ match }) => {
         .filter((p) => p.id === Number(productId))
         .map((product) => (
           <>
+            <Link to={`/${product.category}`}>Back to {product.category}</Link>
             <Col xs={12} md={6}>
               <img src={product.image} alt={product.title} />
             </Col>
             <Col xs={12} md={6}>
               <h1>{product.title}</h1>
-              <p>{product.description}</p>
-              <h2>{product.price}$</h2>
-              <p className="description">{product.description}</p>
+              <Link
+                className="text-uppercase text-muted"
+                to={`/${product.category}`}
+              >
+                {product.category}
+              </Link>
+              <p className="description text-muted">{product.description}</p>
+              <h2 className="text-bold mb-4">{product.price}$</h2>
               <Button variant="warning">Add To Cart</Button>
             </Col>
           </>

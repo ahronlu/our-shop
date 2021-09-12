@@ -17,7 +17,7 @@ export const CategoryPage = (props) => {
 
   return (
     <Row>
-      <h1>{categoryName}</h1>
+      <h1 className="text-center text-capitalize my-5">{categoryName}</h1>
       {products
         .filter((p) => p.category === categoryName)
         .map((product) => (

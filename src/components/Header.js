@@ -9,11 +9,11 @@ export const Header = () => {
     "men's clothing",
     "women's clothing",
     "jewelery",
-    "electronic",
+    "electronics",
   ];
 
   return (
-    <header>
+    <header className="border-bottom border-light">
       <Navbar bg="white" expand="lg">
         <Container>
           <Link to="/">
