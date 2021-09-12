@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
-import { ProductCard } from "../components/ProductCard";
+import { ProductCard } from "../components";
 
 export const CategoryPage = (props) => {
   const { categoryName } = props.match.params;

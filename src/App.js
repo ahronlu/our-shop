@@ -11,8 +11,8 @@ export default function App() {
       <Header />
       <Container>
         <Switch>
-          <Route path="/:categoryName" component={CategoryPage} />
           <Route path="/product/:productId" component={ProductPage} />
+          <Route path="/:categoryName" component={CategoryPage} />
           <Route path="/" component={HomePage} exact />
         </Switch>
       </Container>

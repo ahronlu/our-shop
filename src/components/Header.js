@@ -3,7 +3,6 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 
 export const Header = () => {
   const location = useLocation();
-  console.log(location);
 
   const links = [
     "home",
@@ -24,14 +23,14 @@ export const Header = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
               {links.map((link) => (
-                <Link to={`/${link === "home" ? "" : link}`}>
-                  <Nav.Link
-                    className={`text-capitalize ${
-                      location.pathname === "/" + link ? "text-warning" : ""
-                    }`}
-                  >
-                    {link}
-                  </Nav.Link>
+                <Link
+                  key={link}
+                  to={`/${link === "home" ? "" : link}`}
+                  className={`text-capitalize mx-3 ${
+                    location.pathname === "/" + link ? "text-warning" : ""
+                  }`}
+                >
+                  {link}
                 </Link>
               ))}
             </Nav>

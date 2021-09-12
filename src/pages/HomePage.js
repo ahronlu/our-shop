@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Row } from "react-bootstrap";
-import { ProductCard } from "../components/ProductCard";
+import { ProductCard } from "../components";
 
 export const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -12,8 +12,6 @@ export const HomePage = () => {
     };
     getProducts();
   }, []);
-
-  console.log(products);
 
   return (
     <Row>
