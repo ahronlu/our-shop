@@ -15,8 +15,9 @@ export const ProductPage = ({ match }) => {
       setProduct(data);
       setLoading(false);
     };
+
     getProduct();
-  }, []);
+  }, [productId]);
 
   return (
     <Row className="align-items-center">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
+import { Row, Spinner } from "react-bootstrap";
 import { ProductCard } from "../components";
 
 export const HomePage = () => {
@@ -7,18 +7,22 @@ export const HomePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getProducts = () => {
-      fetch("https://fakestoreapi.com/products?limit=4")
-        .then((res) => res.json())
-        .then((json) => setProducts(json));
+    const getProducts = async () => {
+      const res = await fetch("https://fakestoreapi.com/products?limit=4");
+      const data = await res.json();
+      setProducts(data);
+      setLoading(false);
     };
+
     getProducts();
   }, []);
 
   return (
     <Row>
       <h1 className="text-uppercase my-5 text-center">Latest Products</h1>
-      {products.length ? (
+      {loading ? (
+        <Spinner animation="border" className="mx-auto" />
+      ) : products.length ? (
         products?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))

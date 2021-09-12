@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { HomePage, CategoryPage, ProductPage } from "./pages";
+import { HomePage, CategoryPage, ProductPage, CheckoutPage } from "./pages";
 import { Header } from "./components";
 
 import "./App.css";
@@ -12,6 +12,7 @@ export default function App() {
       <Container>
         <Switch>
           <Route path="/product/:productId" component={ProductPage} />
+          <Route path="/checkout" component={CheckoutPage} />
           <Route path="/:categoryName" component={CategoryPage} />
           <Route path="/" component={HomePage} exact />
         </Switch>
