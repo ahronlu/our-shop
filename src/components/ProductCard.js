@@ -1,9 +1,13 @@
-import { Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Col, Button } from "react-bootstrap";
+import { addToCart } from "../actions/cartActions";
 
-export const ProductCard = ({
-  product: { image, title, description, price, category, id },
-}) => {
+export const ProductCard = ({ product }) => {
+  const { image, title, description, price, category, id } = product;
+
+  const dispatch = useDispatch();
+
   return (
     <Col
       className="d-flex flex-column align-items-center text-center mb-5"
@@ -23,7 +27,9 @@ export const ProductCard = ({
       </Link>
       <p className="description">{description.slice(0, 100)}...</p>
       <p>{price}$</p>
-      <Button variant="warning">Add To Cart</Button>
+      <Button variant="warning" onClick={() => dispatch(addToCart(product))}>
+        Add To Cart
+      </Button>
     </Col>
   );
 };

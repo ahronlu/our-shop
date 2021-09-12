@@ -8,7 +8,7 @@ export const CategoryPage = (props) => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const getProducts = () => {
-      fetch("https://api.jsonbin.io/b/5eba60b58284f36af7b9c829/1")
+      fetch(`https://fakestoreapi.com/products/category/${categoryName}`)
         .then((res) => res.json())
         .then((json) => setProducts(json));
     };
@@ -18,11 +18,9 @@ export const CategoryPage = (props) => {
   return (
     <Row>
       <h1 className="text-center text-capitalize my-5">{categoryName}</h1>
-      {products
-        .filter((p) => p.category === categoryName)
-        .map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </Row>
   );
 };

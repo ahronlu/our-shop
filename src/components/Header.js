@@ -1,8 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 export const Header = () => {
   const location = useLocation();
+
+  const { cartItems } = useSelector((state) => state.cart);
 
   const links = [
     "home",
@@ -20,7 +23,7 @@ export const Header = () => {
             <Navbar.Brand>Shop</Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-nav" className="order-sm-3">
             <Nav className="mx-auto">
               {links.map((link) => (
                 <Link
@@ -35,6 +38,9 @@ export const Header = () => {
               ))}
             </Nav>
           </Navbar.Collapse>
+          <Link to="/cart" className="mb-0 order-sm-2">
+            Cart({cartItems.length})
+          </Link>
         </Container>
       </Navbar>
     </header>

@@ -4,9 +4,11 @@ import { ProductCard } from "../components";
 
 export const HomePage = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const getProducts = () => {
-      fetch("https://api.jsonbin.io/b/5eba60b58284f36af7b9c829/1")
+      fetch("https://fakestoreapi.com/products?limit=4")
         .then((res) => res.json())
         .then((json) => setProducts(json));
     };
@@ -17,9 +19,9 @@ export const HomePage = () => {
     <Row>
       <h1 className="text-uppercase my-5 text-center">Latest Products</h1>
       {products.length ? (
-        products
-          ?.slice(0, 4)
-          .map((product) => <ProductCard key={product.id} product={product} />)
+        products?.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))
       ) : (
         <h2>There are no products</h2>
       )}
