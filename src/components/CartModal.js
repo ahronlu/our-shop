@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Modal, Button, Col, Row } from "react-bootstrap";
 import { CLOSE_CART } from "../constants/cartConstants";
@@ -33,7 +34,9 @@ export const CartModal = () => {
 
             <Modal.Footer>
               <p><b>Total:</b> 26.98%</p>
-              <Button variant="primary">Checkout</Button>
+              <Link to="/checkout">
+                <Button variant="primary">Checkout</Button>
+              </Link>
             </Modal.Footer>
           </Modal>
   )
