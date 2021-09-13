@@ -12,12 +12,16 @@ export const CheckoutPage = () => {
       {cartItems.length ? (
         cartItems?.map((item) => (
           <Row className="align-items-center mb-5">
-            <Col xs={6} md={2}>
+            <Col xs={5} md={2}>
               <img src={item.image} alt={item.title} height="100" />
             </Col>
-            <Col xs={6} md={2}>
+            <Col xs={5} md={2}>
               <h2>{item.title}</h2>
             </Col>
+            <Col xs={2} md={1}>
+              <span>-</span><span>{item.qty}</span><span>+</span>
+            </Col>
+            
           </Row>
         ))
       ) : (
