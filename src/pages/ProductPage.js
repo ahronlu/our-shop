@@ -25,10 +25,10 @@ export const ProductPage = ({ match }) => {
       ) : (
         <Row className="flex-column align-items-center">
           <Link to={`/${product.category}`}>Back to {product.category}</Link>
-          <Col xs={10} md={6}>
+          <Col xs={12} md={6}>
             <img src={product.image} alt={product.title} />
           </Col>
-          <Col xs={10} md={6}>
+          <Col className="text-center" xs={12} md={6}>
             <h1>{product.title}</h1>
             <Link
               className="text-uppercase text-muted"
