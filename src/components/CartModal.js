@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Modal, Button, Col, Row } from "react-bootstrap" ;
-import { useSelector } from "react-redux";
 
 export const CartModal = () => {
     const [show, setShow] = useState(false);
