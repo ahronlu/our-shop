@@ -8,8 +8,7 @@ export const CartModal = () => {
     const { cartItems } = useSelector((state) => state.cart);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
+    
     return (
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
