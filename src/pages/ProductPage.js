@@ -1,28 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Col, Row, Button, Spinner } from "react-bootstrap";
+import { Col, Row, Button, Spinner, Alert } from "react-bootstrap";
+import { listProductDetails } from "../actions/productActions";
 
 export const ProductPage = ({ match }) => {
   const { productId } = match.params;
 
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = productDetails;
 
   useEffect(() => {
-    const getProduct = async () => {
-      const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
-      const data = await res.json();
-      setProduct(data);
-      setLoading(false);
-    };
-
-    getProduct();
-  }, [productId]);
+    dispatch(listProductDetails(productId));
+  }, [productId, dispatch]);
 
   return (
     <Row className="align-items-center">
       {loading ? (
         <Spinner animation="border" className="mx-auto" />
+      ) : error ? (
+        <Alert variant="danger">{error}</Alert>
       ) : (
         <>
           <Link to={`/${product.category}`}>Back to {product.category}</Link>

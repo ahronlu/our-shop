@@ -1,33 +1,30 @@
-import { useEffect, useState } from "react";
-import { Row, Spinner } from "react-bootstrap";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Alert, Row, Spinner } from "react-bootstrap";
 import { ProductCard } from "../components";
+import { listTopProducts } from "../actions/productActions";
 
 export const HomePage = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
 
   useEffect(() => {
-    const getProducts = async () => {
-      const res = await fetch("https://fakestoreapi.com/products?limit=4");
-      const data = await res.json();
-      setProducts(data);
-      setLoading(false);
-    };
-
-    getProducts();
-  }, []);
+    dispatch(listTopProducts());
+  }, [dispatch]);
 
   return (
     <Row>
       <h1 className="text-uppercase my-5 text-center">Latest Products</h1>
       {loading ? (
         <Spinner animation="border" className="mx-auto" />
-      ) : products.length ? (
+      ) : error ? (
+        <Alert vaiant="danger">{error}</Alert>
+      ) : (
         products?.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))
-      ) : (
-        <h2>There are no products</h2>
       )}
     </Row>
   );
