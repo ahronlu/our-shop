@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { HomePage, CategoryPage, ProductPage, CheckoutPage } from "./pages";
-import { Header } from "./components";
+import { Header, CartModal } from "./components";
 
 import "./App.css";
 
@@ -17,6 +17,7 @@ export default function App() {
           <Route path="/" component={HomePage} exact />
         </Switch>
       </Container>
+      <CartModal />
     </Router>
   );
 }
