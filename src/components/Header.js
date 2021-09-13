@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
 export const Header = () => {
   const location = useLocation();
@@ -38,9 +38,9 @@ export const Header = () => {
               ))}
             </Nav>
           </Navbar.Collapse>
-          <Link to="/cart" className="mb-0 order-sm-2">
+          <Button variant="light" className="mb-0 order-sm-2">
             Cart({cartItems.length})
-          </Link>
+          </Button>
         </Container>
       </Navbar>
     </header>
