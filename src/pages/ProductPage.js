@@ -17,7 +17,7 @@ export const ProductPage = ({ match }) => {
   }, [productId, dispatch]);
 
   return (
-    <Row className="align-items-center">
+    <Row className="align-center">
       {loading ? (
         <Spinner animation="border" className="mx-auto" />
       ) : error ? (
