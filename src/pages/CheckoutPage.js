@@ -9,9 +9,7 @@ export const CheckoutPage = () => {
       <h1 className="text-uppercase my-5 text-center">
         Order <span className="text-warning">Summary</span>
       </h1>
-      {!cartItems.length ? (
-        <Spinner animation="border" className="mx-auto" />
-      ) : cartItems.length ? (
+      {cartItems.length ? (
         cartItems?.map((item) => (
           <Row className="align-items-center mb-5">
             <Col xs={6} md={2}>
