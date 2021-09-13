@@ -2,13 +2,25 @@ import {
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
   CART_SAVE_SHIPPING_ADDRESS,
+  OPEN_CART,
+  CLOSE_CART
 } from "../constants/cartConstants";
 
 export const cartReducer = (
-  state = { cartItems: [], shippingAddress: {} },
+  state = { cartOpen: false, cartItems: [], shippingAddress: {} },
   action
 ) => {
   switch (action.type) {
+    case OPEN_CART:
+        return {
+          ...state,
+          cartOpen: true
+        }
+    case CLOSE_CART:
+        return {
+          ...state,
+          cartOpen: false
+        }
     case CART_ADD_ITEM:
       const item = action.payload;
 
