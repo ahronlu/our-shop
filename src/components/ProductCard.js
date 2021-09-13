@@ -27,7 +27,7 @@ export const ProductCard = ({ product }) => {
       </Link>
       <p className="description">{description.slice(0, 100)}...</p>
       <p>{price}$</p>
-      <Button variant="warning" onClick={() => dispatch(addToCart(product))}>
+      <Button className="d-flex align-items-center" variant="warning" onClick={() => dispatch(addToCart(product))}>
         <i class="bi bi-cart4"></i> Add To Cart
       </Button>
     </Col>
