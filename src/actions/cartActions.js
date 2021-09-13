@@ -4,7 +4,7 @@ import {
   CART_SAVE_SHIPPING_ADDRESS,
 } from "../constants/cartConstants";
 
-export const addToCart = (product, qty) => async (dispatch, getState) => {
+export const addToCart = (product) => async (dispatch, getState) => {
   dispatch({
     type: CART_ADD_ITEM,
     payload: {
@@ -13,7 +13,7 @@ export const addToCart = (product, qty) => async (dispatch, getState) => {
       description: product.description,
       image: product.image,
       price: product.price,
-      qty,
+      qty: 1
     },
   });
 
