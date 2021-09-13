@@ -28,7 +28,7 @@ export const ProductCard = ({ product }) => {
       <p className="description">{description.slice(0, 100)}...</p>
       <p>{price}$</p>
       <Button variant="warning" onClick={() => dispatch(addToCart(product))}>
-        Add To Cart
+        <i class="bi bi-cart4"></i> Add To Cart
       </Button>
     </Col>
   );
