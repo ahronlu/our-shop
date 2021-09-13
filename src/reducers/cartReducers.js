@@ -1,4 +1,6 @@
 import {
+  CART_INCREMENT_ITEM,
+  CART_DECREMENT_ITEM,
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
   CART_SAVE_SHIPPING_ADDRESS,
@@ -11,6 +13,16 @@ export const cartReducer = (
   action
 ) => {
   switch (action.type) {
+    case CART_INCREMENT_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.forEach((x) => x.product === action.payload x.qty++),
+      };
+    case CART_DECREMENT_ITEM:
+      return {
+        ...state,
+        cartItems: state.cartItems.forEach((x) => x.product === action.payload x.qty-1),
+      };
     case OPEN_CART:
         return {
           ...state,
