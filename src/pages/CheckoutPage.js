@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Row, Col, Spinner } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 export const CheckoutPage = () => {
   const { cartItems } = useSelector((state) => state.cart);
