@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import { Modal, Button, Col, Row } from "react-bootstrap" ;
+import { useSelector, useDispatch } from "react-redux";
+import { Modal, Button, Col, Row } from "react-bootstrap";
+import { closeCartModal } from "../actions/cartActions";
 
 export const CartModal = () => {
-    const [show, setShow] = useState(false);
+    const dispatch = useDispatch();
 
-    const { cartItems } = useSelector((state) => state.cart);
+    const { cartItems, cartOpen } = useSelector((state) => state.cart);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => dispatch(closeCartModal(false));
     
     return (
-          <Modal show={show} onHide={handleClose}>
+          <Modal show={cartOpen} onHide={handleClose}>
             <Modal.Header closeButton>
             </Modal.Header>
 
