@@ -1,3 +1,5 @@
+export const OPEN_CART = "OPEN_CART";
+export const CLOSE_CART = "CLOSE_CART";
 export const CART_ADD_ITEM = "CART_ADD_ITEM";
 export const CART_INCREASE_ITEM = "CART_INCREASE_ITEM";
 export const CART_DECREASE_ITEM = "CART_DECREASE_ITEM";
