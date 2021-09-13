@@ -4,8 +4,8 @@ import { Row, Spinner, Alert } from "react-bootstrap";
 import { listProducts } from "../actions/productActions";
 import { ProductCard } from "../components";
 
-export const CategoryPage = (props) => {
-  const { categoryName } = props.match.params;
+export const CategoryPage = ({ match }) => {
+  const { categoryName } = match.params;
 
   const dispatch = useDispatch();
 
