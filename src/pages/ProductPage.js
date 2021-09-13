@@ -24,7 +24,7 @@ export const ProductPage = ({ match }) => {
         <Alert variant="danger">{error}</Alert>
       ) : (
         <Row className="flex-column align-items-center">
-          <Link to={`/${product.category}`}>Back to {product.category}</Link>
+          <Link to={`/${product.category}`}><i className="bi bi-arrow-left"></i> Back to {product.category}</Link>
           <Col xs={12} md={6}>
             <img src={product.image} alt={product.title} />
           </Col>
