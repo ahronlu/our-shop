@@ -1,9 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { OPEN_CART } from "../constants/cartConstants";
 
 export const Header = () => {
   const location = useLocation();
+
+  const dispatch = useDispatch();
 
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -38,7 +41,7 @@ export const Header = () => {
               ))}
             </Nav>
           </Navbar.Collapse>
-          <Button variant="light" className="mb-0 order-sm-2">
+          <Button variant="light" onClick={() => dispatch({ type: OPEN_CART })} className="mb-0 order-sm-2">
             Cart({cartItems.length})
           </Button>
         </Container>
