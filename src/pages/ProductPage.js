@@ -38,7 +38,7 @@ export const ProductPage = ({ match }) => {
             </Link>
             <p className="description text-muted">{product.description}</p>
             <h2 className="text-bold mb-4">{product.price}$</h2>
-            <Button variant="warning">Add To Cart</Button>
+            <Button variant="warning"><i class="bi bi-cart4"></i> Add To Cart</Button>
           </Col>
         </Row>
       )}
