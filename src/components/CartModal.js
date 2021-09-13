@@ -17,19 +17,19 @@ export const CartModal = () => {
 
             <Modal.Body>
               {cartItems.length ? (
-        cartItems?.map((item) => (
-          <Row className="align-items-center mb-5">
-            <Col xs={6} md={2}>
-              <img src={item.image} alt={item.title} height="100" />
-            </Col>
-            <Col xs={6} md={2}>
-              <h2>{item.title}</h2>
-            </Col>
-          </Row>
-        ))
-      ) : (
-        <h2>Your cart is empty</h2>
-      )}
+               cartItems?.map((item) => (
+                <Row className="align-items-center mb-5">
+                  <Col xs={6} md={2}>
+                    <img src={item.image} alt={item.title} height="100" />
+                  </Col>
+                 <Col xs={6} md={2}>
+                   <h2>{item.title}</h2>
+                 </Col>
+                </Row>
+               ))
+             ) : (
+              <h2>Your cart is empty</h2>
+             )}
             </Modal.Body>
 
             <Modal.Footer>
