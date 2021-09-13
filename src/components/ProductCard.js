@@ -21,7 +21,7 @@ export const ProductCard = ({ product }) => {
         width="auto"
         style={{ width: "auto" }}
       />
-      <Link to={`/${category}`}>{category}</Link>
+      <Link className="text-capitalize" to={`/${category}`}>{category}</Link>
       <Link to={`/product/${id}`}>
         <h2>{title.slice(0, 25)}</h2>
       </Link>
