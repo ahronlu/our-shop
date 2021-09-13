@@ -38,7 +38,7 @@ export const CartModal = () => {
             <Modal.Footer>
               <p><b>Total:</b> 26.98%</p>
               <Link to="/checkout">
-                <Button variant="primary">Checkout</Button>
+                <Button variant="warning">Checkout</Button>
               </Link>
             </Modal.Footer>
           </Modal>
