@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Modal, Button, Col, Row } from "react-bootstrap" ;
 
 export const CartModal = () => {
