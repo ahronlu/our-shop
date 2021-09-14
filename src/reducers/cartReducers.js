@@ -14,26 +14,26 @@ export const cartReducer = (
 ) => {
   switch (action.type) {
     case CART_INCREMENT_ITEM:
-      const item = state.cartItems.find((x) => x.product === action.payload.product);
+      const iItem = state.cartItems.find((x) => x.product === action.payload.product);
 
-      item.qty++
+      iItem.qty++
 
       return {
         ...state,
         cartItems: state.cartItems.map((x) =>
-            x.product === item.product ? item : x
+            x.product === iItem.product ? iItem : x
         ),
        }
     case CART_DECREMENT_ITEM:
 
-      const item = state.cartItems.find((x) => x.product === action.payload.product);
+      const dItem = state.cartItems.find((x) => x.product === action.payload.product);
 
-      item.qty-1
+      dItem.qty-1
 
       return {
         ...state,
         cartItems: state.cartItems.map((x) =>
-            x.product === item.product ? item : x
+            x.product === dItem.product ? dItem : x
         ),
        }
     case OPEN_CART:
