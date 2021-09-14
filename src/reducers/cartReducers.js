@@ -69,7 +69,7 @@ export const cartReducer = (
         ...state,
         cartItems: state.cartItems.filter((x) => {
           console.log(x.product, action.payload)
-          console.log(x.product == action.payload)
+          console.log(x.product === action.payload)
           return x.product !== action.payload
         }),
       };
