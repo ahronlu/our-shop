@@ -5,7 +5,7 @@ import {
   CART_REMOVE_ITEM,
   CART_SAVE_SHIPPING_ADDRESS,
   OPEN_CART,
-  CLOSE_CART
+  CLOSE_CART,
 } from "../constants/cartConstants";
 
 export const cartReducer = (
@@ -14,38 +14,41 @@ export const cartReducer = (
 ) => {
   switch (action.type) {
     case CART_INCREMENT_ITEM:
-      const iItem = state.cartItems.find((x) => x.product === action.payload.product);
+      const iItem = state.cartItems.find(
+        (x) => x.product === action.payload.product
+      );
 
-      iItem.qty++
+      iItem.qty++;
 
       return {
         ...state,
         cartItems: state.cartItems.map((x) =>
-            x.product === iItem.product ? iItem : x
+          x.product === iItem.product ? iItem : x
         ),
-       }
+      };
     case CART_DECREMENT_ITEM:
+      const dItem = state.cartItems.find(
+        (x) => x.product === action.payload.product
+      );
 
-      const dItem = state.cartItems.find((x) => x.product === action.payload.product);
-
-      dItem.qty--
+      dItem.qty--;
 
       return {
         ...state,
         cartItems: state.cartItems.map((x) =>
-            x.product === dItem.product ? dItem : x
+          x.product === dItem.product ? dItem : x
         ),
-       }
+      };
     case OPEN_CART:
-        return {
-          ...state,
-          cartOpen: true
-        }
+      return {
+        ...state,
+        cartOpen: true,
+      };
     case CLOSE_CART:
-        return {
-          ...state,
-          cartOpen: false
-        }
+      return {
+        ...state,
+        cartOpen: false,
+      };
     case CART_ADD_ITEM:
       const item = action.payload;
 
@@ -68,9 +71,9 @@ export const cartReducer = (
       return {
         ...state,
         cartItems: state.cartItems.filter((x) => {
-          console.log(x.product, action.payload)
-          console.log(x.product === action.payload)
-          return x.product !== action.payload
+          console.log(x.product, action.payload);
+          console.log(x.product === action.payload);
+          return x.product !== action.payload;
         }),
       };
     case CART_SAVE_SHIPPING_ADDRESS:

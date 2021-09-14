@@ -17,6 +17,10 @@ body a:hover {
   color: #ffc107;
 }
 
+i::before {
+  vertical-align: middle !important;
+}
+
 img {
   max-width: 100%;
   width: auto;

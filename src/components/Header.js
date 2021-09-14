@@ -41,7 +41,11 @@ export const Header = () => {
               ))}
             </Nav>
           </Navbar.Collapse>
-          <Button variant="light" onClick={() => dispatch({ type: OPEN_CART })} className="mb-0 order-sm-2">
+          <Button
+            variant="light"
+            onClick={() => dispatch({ type: OPEN_CART })}
+            className="mb-0 order-sm-2"
+          >
             Cart({cartItems.length})
           </Button>
         </Container>

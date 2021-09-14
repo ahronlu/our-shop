@@ -22,16 +22,21 @@ export const ProductCard = ({ product }) => {
         width="auto"
         style={{ width: "auto" }}
       />
-      <Link className="text-capitalize" to={`/${category}`}>{category}</Link>
+      <Link className="text-capitalize" to={`/${category}`}>
+        {category}
+      </Link>
       <Link to={`/product/${id}`}>
         <h2>{title.slice(0, 25)}</h2>
       </Link>
       <p className="description">{description.slice(0, 100)}...</p>
-      <p>{price}$</p>
-      <Button className="d-flex align-items-center" variant="warning" onClick={() => {
-        dispatch(addToCart(product))
-        dispatch({type: OPEN_CART})
-        }}>
+      <p>${price}</p>
+      <Button
+        variant="warning"
+        onClick={() => {
+          dispatch(addToCart(product));
+          dispatch({ type: OPEN_CART });
+        }}
+      >
         <i class="bi bi-cart4"></i> Add To Cart
       </Button>
     </Col>

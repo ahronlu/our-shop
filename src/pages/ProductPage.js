@@ -26,7 +26,12 @@ export const ProductPage = ({ match }) => {
         <Alert variant="danger">{error}</Alert>
       ) : (
         <Row className="flex-column align-items-center">
-          <Link className="d-flex align-items-center" to={`/${product.category}`}><i className="bi bi-arrow-left"></i> Back to {product.category}</Link>
+          <Link
+            className="d-flex align-items-center"
+            to={`/${product.category}`}
+          >
+            <i className="bi bi-arrow-left"></i> Back to {product.category}
+          </Link>
           <Col xs={12} md={6}>
             <img src={product.image} alt={product.title} />
           </Col>
@@ -39,11 +44,16 @@ export const ProductPage = ({ match }) => {
               {product.category}
             </Link>
             <p className="description text-muted">{product.description}</p>
-            <h2 className="text-bold mb-4">{product.price}$</h2>
-            <Button onClick={() => {
-                dispatch(addToCart(product))
-                dispatch({type: OPEN_CART})
-             }} variant="warning"><i class="bi bi-cart4"></i> Add To Cart</Button>
+            <h2 className="text-bold mb-4">${product.price}</h2>
+            <Button
+              onClick={() => {
+                dispatch(addToCart(product));
+                dispatch({ type: OPEN_CART });
+              }}
+              variant="warning"
+            >
+              <i class="bi bi-cart4"></i> Add To Cart
+            </Button>
           </Col>
         </Row>
       )}

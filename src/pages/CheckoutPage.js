@@ -1,6 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-bootstrap";
-import { decrementCartItem, incrementCartItem, removeFromCart } from "../actions/cartActions";
+import {
+  decrementCartItem,
+  incrementCartItem,
+  removeFromCart,
+} from "../actions/cartActions";
 
 export const CheckoutPage = () => {
   const dispatch = useDispatch();
@@ -14,23 +18,43 @@ export const CheckoutPage = () => {
       </h1>
       {cartItems.length ? (
         cartItems?.map((item) => (
-          <Row className="align-items-center mb-5">
-            <Col xs={5}>
-              <img src={item.image} alt={item.title} height="100" />
-            </Col>
-            <Col xs={5}>
-              <h2>{item.title}</h2>
-            </Col>
-                 <Col className="d-flex justify-content-between align-items-center" xs={2}>
-                   <span style={{cursor: "pointer"}} onClick={() => {
-                       item.qty === 1 ?
-                       dispatch(removeFromCart(item.product)) :
-                       dispatch(decrementCartItem(item))
-                   }}>-</span>
-                   <span>{item.qty}</span>
-                   <span style={{cursor: "pointer"}} onClick={() => dispatch(incrementCartItem(item))}>+</span>
-                 </Col>
-          </Row>
+          <>
+            <Row className="align-items-center mb-5 text-center">
+              <Col xs={3}>
+                <img src={item.image} alt={item.title} height="100" />
+              </Col>
+              <Col xs={6}>
+                <h2>{item.title}</h2>
+              </Col>
+              <Col xs={3}>
+                <i
+                  class="bi bi-dash"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    item.qty === 1
+                      ? dispatch(removeFromCart(item.product))
+                      : dispatch(decrementCartItem(item));
+                  }}
+                ></i>
+                <span>{item.qty}</span>
+                <i
+                  class="bi bi-plus"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => dispatch(incrementCartItem(item))}
+                ></i>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="text-center" xs={12}>
+                <h2>
+                  <b>Total:</b> $
+                  {cartItems
+                    .reduce((acc, item) => acc + item.qty * item.price, 0)
+                    .toFixed(2)}
+                </h2>
+              </Col>
+            </Row>
+          </>
         ))
       ) : (
         <h2>Your cart is empty</h2>

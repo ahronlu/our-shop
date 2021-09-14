@@ -3,7 +3,7 @@ import {
   CART_REMOVE_ITEM,
   CART_SAVE_SHIPPING_ADDRESS,
   CART_INCREMENT_ITEM,
-  CART_DECREMENT_ITEM
+  CART_DECREMENT_ITEM,
 } from "../constants/cartConstants";
 
 export const incrementCartItem = (product) => (dispatch, getState) => {
@@ -33,7 +33,7 @@ export const addToCart = (product) => async (dispatch, getState) => {
       description: product.description,
       image: product.image,
       price: product.price,
-      qty: 1
+      qty: 1,
     },
   });
 
