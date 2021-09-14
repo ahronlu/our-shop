@@ -14,12 +14,25 @@ export const cartReducer = (
 ) => {
   switch (action.type) {
     case CART_INCREMENT_ITEM:
+      const item = state.cartItems.find((x) => x.product === action.payload.product);
+
+      item.qty++
+
       return {
         ...state,
+        cartItems: state.cartItems.map((x) =>
+            x.product === item.product ? item : x
        }
     case CART_DECREMENT_ITEM:
+
+      const item = state.cartItems.find((x) => x.product === action.payload.product);
+
+      item.qty-1
+
       return {
         ...state,
+        cartItems: state.cartItems.map((x) =>
+            x.product === item.product ? item : x
        }
     case OPEN_CART:
         return {
