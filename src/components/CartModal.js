@@ -25,7 +25,7 @@ export const CartModal = () => {
                  <Col xs={5} md={2}>
                    <h2>{item.title}</h2>
                  </Col>
-                 <Col className="justify-content-between align-items-center" xs={2} md={2}>
+                 <Col className="d-flex justify-content-between align-items-center" xs={2} md={2}>
                    <span>-</span><span>{item.qty}</span><span>+</span>
                  </Col>
                 </Row>
