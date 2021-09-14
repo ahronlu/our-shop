@@ -21,15 +21,15 @@ export const CheckoutPage = () => {
             <Col xs={5}>
               <h2>{item.title}</h2>
             </Col>
-            <Col className="d-flex justify-content-between align-items-center" xs={2}>
-              <span onClick={() => dispatch(decrementCartItem(item))}>-</span><span>{item.qty}</span>
-                <span onClick={() => {
-                            item.qty === 1 ?
-                           dispatch(removeFromCart(item.id)) :
-                           dispatch(incrementCartItem(item))
-                       }}>+</span>
-            </Col>
-            
+                 <Col className="d-flex justify-content-between align-items-center" xs={2}>
+                   <span style={{cursor: "pointer"}} onClick={() => {
+                       item.qty === 1 ?
+                       dispatch(removeFromCart(item.id)) :
+                       dispatch(decrementCartItem(item))
+                   }}>-</span>
+                   <span>{item.qty}</span>
+                   <span style={{cursor: "pointer"}} onClick={() => dispatch(incrementCartItem(item))}>+</span>
+                 </Col>
           </Row>
         ))
       ) : (
