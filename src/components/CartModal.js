@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Modal, Button, Col, Row } from "react-bootstrap";
 import { CLOSE_CART } from "../constants/cartConstants";
+import { decrementCartItem, incrementCartItem } from "../actions/cartActions";
 
 export const CartModal = () => {
     const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export const CartModal = () => {
                    <h2>{item.title}</h2>
                  </Col>
                  <Col className="d-flex justify-content-between align-items-center" xs={2} md={2}>
-                   <span>-</span><span>{item.qty}</span><span>+</span>
+                   <span onClick={() => dispatch(decrementCartItem)}>-</span><span>{item.qty}</span><span onClick={() => dispatch(decrementCartItem)}>+</span>
                  </Col>
                 </Row>
                ))
