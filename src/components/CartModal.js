@@ -20,13 +20,13 @@ export const CartModal = () => {
               {cartItems.length ? (
                cartItems?.map((item) => (
                 <Row className="align-items-center mb-5">
-                  <Col xs={5} md={2}>
+                  <Col xs={5}>
                     <img src={item.image} alt={item.title} height="100" />
                   </Col>
-                 <Col xs={5} md={2}>
+                 <Col xs={5}>
                    <h2>{item.title}</h2>
                  </Col>
-                 <Col className="d-flex justify-content-between align-items-center" xs={2} md={2}>
+                 <Col className="d-flex justify-content-between align-items-center" xs={2}>
                    <span onClick={() => dispatch(decrementCartItem(item))}>-</span><span>{item.qty}</span><span onClick={() => dispatch(incrementCartItem(item))}>+</span>
                  </Col>
                 </Row>
