@@ -5,11 +5,16 @@ import {
   incrementCartItem,
   removeFromCart,
 } from "../actions/cartActions";
+import PayPalButton from "../components/PaypalButton";
 
-export const CheckoutPage = () => {
+export const CheckoutPage = ({ history }) => {
   const dispatch = useDispatch();
 
   const { cartItems } = useSelector((state) => state.cart);
+
+  const cartTotal = cartItems
+    .reduce((acc, item) => acc + item.qty * item.price, 0)
+    .toFixed(2);
 
   return (
     <>
@@ -47,11 +52,13 @@ export const CheckoutPage = () => {
             <Row>
               <Col className="text-center" xs={12}>
                 <h2>
-                  <b>Total:</b> $
-                  {cartItems
-                    .reduce((acc, item) => acc + item.qty * item.price, 0)
-                    .toFixed(2)}
+                  <b>Total:</b> ${cartTotal}
                 </h2>
+                <PayPalButton
+                  total={cartTotal}
+                  // clearCart={clearCart}
+                  history={history}
+                />
               </Col>
             </Row>
           </>
