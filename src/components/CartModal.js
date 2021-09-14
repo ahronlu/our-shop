@@ -27,13 +27,13 @@ export const CartModal = () => {
                    <h2>{item.title}</h2>
                  </Col>
                  <Col className="d-flex justify-content-between align-items-center" xs={2}>
-                   <span onClick={() => {
+                   <span style={{cursor: "pointer"}} onClick={() => {
                        item.qty === 1 ?
                        dispatch(removeFromCart(item.id)) :
                        dispatch(decrementCartItem(item))
                    }}>-</span>
                    <span>{item.qty}</span>
-                   <span onClick={() => dispatch(incrementCartItem(item))}>+</span>
+                   <span style={{cursor: "pointer"}} onClick={() => dispatch(incrementCartItem(item))}>+</span>
                  </Col>
                 </Row>
                ))
