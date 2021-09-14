@@ -22,7 +22,7 @@ export const CheckoutPage = () => {
               <h2>{item.title}</h2>
             </Col>
             <Col className="d-flex justify-content-between align-items-center" xs={2} md={1}>
-              <span onClick={() => dispatch(decrementCartItem())}>-</span><span>{item.qty}</span><span onClick={() => dispatch(incrementCartItem())}>+</span>
+              <span onClick={() => dispatch(decrementCartItem(iten))}>-</span><span>{item.qty}</span><span onClick={() => dispatch(incrementCartItem(item))}>+</span>
             </Col>
             
           </Row>
