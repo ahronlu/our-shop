@@ -25,8 +25,8 @@ export const Header = () => {
           <Link to="/">
             <Navbar.Brand>Shop</Navbar.Brand>
           </Link>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="order-sm-3">
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-3" />
+          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mx-auto">
               {links.map((link) => (
                 <Link
@@ -42,9 +42,9 @@ export const Header = () => {
             </Nav>
           </Navbar.Collapse>
           <Button
-            variant="light"
+            variant="white"
             onClick={() => dispatch({ type: OPEN_CART })}
-            className="mb-0 order-sm-2"
+            className="mb-0 mx-3 p-0 order-2"
           >
             Cart({cartItems.length})
           </Button>
