@@ -18,7 +18,7 @@ export const CheckoutPage = () => {
             <Col xs={5} md={2}>
               <h2>{item.title}</h2>
             </Col>
-            <Col className="justify-content-between align-items-center" xs={2} md={1}>
+            <Col className="d-flex justify-content-between align-items-center" xs={2} md={1}>
               <span>-</span><span>{item.qty}</span><span>+</span>
             </Col>
             
