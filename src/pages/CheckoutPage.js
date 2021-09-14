@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-bootstrap";
-import { decrementCartItem, incrementCartItem } from "../actions/cartActions";
+import { decrementCartItem, incrementCartItem, removeFromCart } from "../actions/cartActions";
 
 export const CheckoutPage = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,12 @@ export const CheckoutPage = () => {
               <h2>{item.title}</h2>
             </Col>
             <Col className="d-flex justify-content-between align-items-center" xs={2}>
-              <span onClick={() => dispatch(decrementCartItem(item))}>-</span><span>{item.qty}</span><span onClick={() => dispatch(incrementCartItem(item))}>+</span>
+              <span onClick={() => dispatch(decrementCartItem(item))}>-</span><span>{item.qty}</span>
+                <span onClick={() => {
+                            item.qty === 1 ?
+                           dispatch(removeFromCart(item.id)) :
+                           dispatch(incrementCartItem(item))
+                       }}>+</span>
             </Col>
             
           </Row>
