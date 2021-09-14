@@ -46,7 +46,8 @@ export const Header = () => {
             onClick={() => dispatch({ type: OPEN_CART })}
             className="mb-0 mx-3 p-0 order-2"
           >
-            Cart({cartItems.length})
+            Cart(
+            {cartItems.reduce((acc, item) => acc + item.qty, 0)})
           </Button>
         </Container>
       </Navbar>
