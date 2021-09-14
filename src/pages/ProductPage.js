@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Col, Row, Button, Spinner, Alert } from "react-bootstrap";
 import { listProductDetails } from "../actions/productActions";
+import { addToCart } from "../actions/cartActions";
+import { CLOSE_CART } from "../constants/cartConstants";
 
 export const ProductPage = ({ match }) => {
   const { productId } = match.params;
@@ -38,7 +40,10 @@ export const ProductPage = ({ match }) => {
             </Link>
             <p className="description text-muted">{product.description}</p>
             <h2 className="text-bold mb-4">{product.price}$</h2>
-            <Button variant="warning"><i class="bi bi-cart4"></i> Add To Cart</Button>
+            <Button onClick={() => {
+                dispatch(addToCart(product))
+                dispatch({type: OPEN_CART})
+             }} variant="warning"><i class="bi bi-cart4"></i> Add To Cart</Button>
           </Col>
         </Row>
       )}
