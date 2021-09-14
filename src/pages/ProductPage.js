@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Button, Spinner, Alert } from "react-bootstrap";
 import { listProductDetails } from "../actions/productActions";
 import { addToCart } from "../actions/cartActions";
-import { CLOSE_CART } from "../constants/cartConstants";
+import { OPEN_CART } from "../constants/cartConstants";
 
 export const ProductPage = ({ match }) => {
   const { productId } = match.params;
