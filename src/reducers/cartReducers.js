@@ -28,7 +28,7 @@ export const cartReducer = (
 
       const dItem = state.cartItems.find((x) => x.product === action.payload.product);
 
-      dItem.qty-1
+      dItem.qty++
 
       return {
         ...state,
