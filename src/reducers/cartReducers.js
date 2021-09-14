@@ -67,7 +67,11 @@ export const cartReducer = (
     case CART_REMOVE_ITEM:
       return {
         ...state,
-        cartItems: state.cartItems.filter((x) => x.product !== action.payload),
+        cartItems: state.cartItems.filter((x) => {
+          console.log(x.product, action.payload)
+          console.log(x.product == action.payload)
+          return x.product !== action.payload
+        }),
       };
     case CART_SAVE_SHIPPING_ADDRESS:
       return {
