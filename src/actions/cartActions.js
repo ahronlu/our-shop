@@ -6,19 +6,19 @@ import {
   CART_DECREMENT_ITEM
 } from "../constants/cartConstants";
 
-export const incrementCartItem = (id) => (dispatch, getState) => {
+export const incrementCartItem = (product) => (dispatch, getState) => {
   dispatch({
     type: CART_INCREMENT_ITEM,
-    payload: id,
+    payload: product,
   });
 
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-export const decrementCartItem = (id) => (dispatch, getState) => {
+export const decrementCartItem = (product) => (dispatch, getState) => {
   dispatch({
     type: CART_DECREMENT_ITEM,
-    payload: id,
+    payload: product,
   });
 
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
