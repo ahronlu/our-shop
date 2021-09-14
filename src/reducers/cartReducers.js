@@ -22,6 +22,7 @@ export const cartReducer = (
         ...state,
         cartItems: state.cartItems.map((x) =>
             x.product === item.product ? item : x
+        ),
        }
     case CART_DECREMENT_ITEM:
 
@@ -33,6 +34,7 @@ export const cartReducer = (
         ...state,
         cartItems: state.cartItems.map((x) =>
             x.product === item.product ? item : x
+        ),
        }
     case OPEN_CART:
         return {
