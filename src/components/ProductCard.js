@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Col, Button } from "react-bootstrap";
 import { addToCart } from "../actions/cartActions";
+import { OPEN_CART } from "../constants/cartConstants";
 
 export const ProductCard = ({ product }) => {
   const { image, title, description, price, category, id } = product;
@@ -27,7 +28,10 @@ export const ProductCard = ({ product }) => {
       </Link>
       <p className="description">{description.slice(0, 100)}...</p>
       <p>{price}$</p>
-      <Button className="d-flex align-items-center" variant="warning" onClick={() => dispatch(addToCart(product))}>
+      <Button className="d-flex align-items-center" variant="warning" onClick={() => {
+        dispatch(addToCart(product))
+        dispatch({type: OPEN_CART})
+        }}>
         <i class="bi bi-cart4"></i> Add To Cart
       </Button>
     </Col>
