@@ -6,6 +6,7 @@ import {
   CART_SAVE_SHIPPING_ADDRESS,
   OPEN_CART,
   CLOSE_CART,
+  CLEAR_CART,
 } from "../constants/cartConstants";
 
 export const cartReducer = (
@@ -13,6 +14,11 @@ export const cartReducer = (
   action
 ) => {
   switch (action.type) {
+    case CLEAR_CART:
+      return {
+        ...state,
+        cartItems: [],
+      };
     case CART_INCREMENT_ITEM:
       const iItem = state.cartItems.find(
         (x) => x.product === action.payload.product

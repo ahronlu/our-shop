@@ -5,10 +5,15 @@ import {
   incrementCartItem,
   removeFromCart,
 } from "../actions/cartActions";
-import PayPalButton from "../components/PaypalButton";
+import PaypalButton from "../components/PaypalButton";
+import { CLEAR_CART } from "../constants/cartConstants";
 
 export const CheckoutPage = ({ history }) => {
   const dispatch = useDispatch();
+
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
 
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -54,9 +59,9 @@ export const CheckoutPage = ({ history }) => {
                 <h2>
                   <b>Total:</b> ${cartTotal}
                 </h2>
-                <PayPalButton
+                <PaypalButton
                   total={cartTotal}
-                  // clearCart={clearCart}
+                  clearCart={clearCart}
                   history={history}
                 />
               </Col>
