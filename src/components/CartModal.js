@@ -37,7 +37,7 @@ export const CartModal = () => {
             </Modal.Body>
 
             <Modal.Footer>
-              <p><b>Total:</b> {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}}</p>
+              <p><b>Total:</b> {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}</p>
               <Link to="/checkout">
                 <Button variant="warning">Checkout</Button>
               </Link>
