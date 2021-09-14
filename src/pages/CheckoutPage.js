@@ -1,8 +1,10 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import { decrementCartItem, incrementCartItem } from "../actions/cartActions";
 
 export const CheckoutPage = () => {
+  const dispatch = useDispatch();
+
   const { cartItems } = useSelector((state) => state.cart);
 
   return (
