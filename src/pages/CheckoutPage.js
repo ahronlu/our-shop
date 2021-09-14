@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
+import { decrementCartItem, incrementCartItem } from "../actions/cartActions";
 
 export const CheckoutPage = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -19,7 +20,7 @@ export const CheckoutPage = () => {
               <h2>{item.title}</h2>
             </Col>
             <Col className="d-flex justify-content-between align-items-center" xs={2} md={1}>
-              <span>-</span><span>{item.qty}</span><span>+</span>
+              <span onClick={() => dispatch(decrementCartItem)}>-</span><span>{item.qty}</span><span onClick={() => dispatch(incrementCartItem)}>+</span>
             </Col>
             
           </Row>
