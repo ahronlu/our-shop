@@ -50,21 +50,22 @@ export const cartReducer = (
         cartOpen: false,
       };
     case CART_ADD_ITEM:
-      const item = action.payload;
-
-      const existItem = state.cartItems.find((x) => x.product === item.product);
+      const existItem = state.cartItems.find(
+        (x) => x.product === action.payload.product
+      );
 
       if (existItem) {
+        existItem.qty++;
         return {
           ...state,
           cartItems: state.cartItems.map((x) =>
-            x.product === existItem.product ? item : x
+            x.product === existItem.product ? existItem : x
           ),
         };
       } else {
         return {
           ...state,
-          cartItems: [...state.cartItems, item],
+          cartItems: [...state.cartItems, action.payload],
         };
       }
     case CART_REMOVE_ITEM:
