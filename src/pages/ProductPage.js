@@ -19,7 +19,7 @@ export const ProductPage = ({ match }) => {
   }, [productId, dispatch]);
 
   return (
-    <Row className="align-center">
+    <Row className="justify-content-center">
       {loading ? (
         <Spinner animation="border" className="mx-auto" />
       ) : error ? (
@@ -29,7 +29,7 @@ export const ProductPage = ({ match }) => {
           <Link className="mt-3" to={`/${product.category}`}>
             <i className="bi bi-arrow-left"></i> Back to {product.category}
           </Link>
-          <Col xs={10} md={6} className="mt-4 mb-3">
+          <Col xs={10} md={6} className="mt-4 mb-3 text-center">
             <img src={product.image} alt={product.title} />
           </Col>
           <Col className="text-center" xs={12} md={6}>
