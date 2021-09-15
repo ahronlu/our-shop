@@ -39,7 +39,7 @@ export const CheckoutPage = ({ history }) => {
               </Col>
               <Col xs={3}>
                 <i
-                  class="bi bi-dash"
+                  className="bi bi-dash"
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     item.qty === 1
@@ -49,7 +49,7 @@ export const CheckoutPage = ({ history }) => {
                 ></i>
                 <span>{item.qty}</span>
                 <i
-                  class="bi bi-plus"
+                  className="bi bi-plus"
                   style={{ cursor: "pointer" }}
                   onClick={() => dispatch(incrementCartItem(item))}
                 ></i>

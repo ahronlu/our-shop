@@ -31,7 +31,7 @@ export const CartModal = () => {
               </Col>
               <Col xs={3} md={2}>
                 <i
-                  class="bi bi-dash"
+                  className="bi bi-dash"
                   style={{ cursor: "pointer" }}
                   onClick={() => {
                     item.qty === 1
@@ -41,7 +41,7 @@ export const CartModal = () => {
                 ></i>
                 <span>{item.qty}</span>
                 <i
-                  class="bi bi-plus"
+                  className="bi bi-plus"
                   style={{ cursor: "pointer" }}
                   onClick={() => dispatch(incrementCartItem(item))}
                 ></i>

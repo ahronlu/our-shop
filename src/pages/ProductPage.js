@@ -50,7 +50,7 @@ export const ProductPage = ({ match }) => {
               }}
               variant="warning"
             >
-              <i class="bi bi-cart4"></i> Add To Cart
+              <i className="bi bi-cart4"></i> Add To Cart
             </Button>
           </Col>
         </Row>

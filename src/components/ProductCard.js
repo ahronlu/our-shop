@@ -37,7 +37,7 @@ export const ProductCard = ({ product }) => {
           dispatch({ type: OPEN_CART });
         }}
       >
-        <i class="bi bi-cart4"></i> Add To Cart
+        <i className="bi bi-cart4"></i> Add To Cart
       </Button>
     </Col>
   );
