@@ -35,6 +35,7 @@ export const CheckoutPage = ({ history }) => {
               </Col>
               <Col xs={6}>
                 <h2>{item.title}</h2>
+                <h3>${item.price}</h3>
               </Col>
               <Col xs={3}>
                 <i
@@ -52,12 +53,13 @@ export const CheckoutPage = ({ history }) => {
                   style={{ cursor: "pointer" }}
                   onClick={() => dispatch(incrementCartItem(item))}
                 ></i>
+                <h3>${item.qty * item.price}</h3>
               </Col>
             </Row>
             <Row>
               <Col className="text-center" xs={12}>
                 <h2>
-                  <b>Total:</b> ${cartTotal}
+                  <b className="text-warning">Total:</b> ${cartTotal}
                 </h2>
                 <PaypalButton
                   total={cartTotal}

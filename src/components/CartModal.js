@@ -27,6 +27,7 @@ export const CartModal = () => {
               </Col>
               <Col xs={6} md={7}>
                 <h2>{item.title}</h2>
+                <h3>${item.price}</h3>
               </Col>
               <Col xs={3} md={2}>
                 <i

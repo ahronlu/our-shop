@@ -22,8 +22,17 @@ export const Header = () => {
     <header className="border-bottom border-light">
       <Navbar bg="white" expand="lg">
         <Container>
-          <Link to="/">
-            <Navbar.Brand>Shop</Navbar.Brand>
+          <Link className="d-flex align-items-center" to="/">
+            <img
+              width="50px"
+              height="50px"
+              className="img-responsive"
+              src="/logo192.png"
+              alt="logo"
+            />
+            <Navbar.Brand className="d-none d-sm-block">
+              <b>SHOP</b>
+            </Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="order-3" />
           <Navbar.Collapse id="basic-navbar-nav">
