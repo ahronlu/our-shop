@@ -19,8 +19,6 @@ export const listProducts = (categoryName) => async (dispatch) => {
       `https://fakestoreapi.com/products/category/${categoryName}`
     );
 
-    console.log(data);
-
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
